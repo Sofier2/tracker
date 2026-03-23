@@ -1,0 +1,38 @@
+{
+  "name": "tracker",
+  "version": "1.0.0",
+  "description": "Цей проєкт дозволяє відслідковувати потреби спільноти та створювати звіти про запити.",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sofier2/tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sofier2/tracker/issues"
+  },
+  "homepage": "https://github.com/Sofier2/tracker#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.58.2",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "vite": "^8.0.1"
+  }
+}
