@@ -14,8 +14,9 @@ export default [
       ecmaVersion: 2021,
       sourceType: "module",
       globals: {
-        ...globals.browser,  // для браузерного коду (window, document)
-        ...globals.node,     // для Node.js (module, require, process)
+        ...globals.browser,  // для браузерного коду
+        ...globals.node,     // для Node.js
+        ...globals.jest,     // додано: глобали Jest (test, expect, beforeEach)
       },
     },
     rules: {
