@@ -12,7 +12,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-     "test": "jest"
+     "test": "jest",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
