@@ -1,6 +1,8 @@
 # Community Needs Tracker
 
 [![CI/CD Pipeline](https://github.com/Sofier2/tracker/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Sofier2/tracker/actions/workflows/ci-cd.yml)
+
+https://tracker-hlsa9b1zx-sofier2s-projects.vercel.app/
 ## Опис
 Цей проєкт дозволяє відслідковувати потреби спільноти та створювати звіти про запити.
 
