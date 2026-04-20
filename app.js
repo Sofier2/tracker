@@ -51,21 +51,20 @@ if (typeof document !== "undefined") {
 // ======================
 // ENV (SAFE)
 // ======================
-let status = "dev";
-
-// якщо є Vite (браузер)
-if (typeof window !== "undefined" && window.__APP_STATUS__) {
-    status = window.__APP_STATUS__;
-}
-
-
+const status =
+  import.meta.env.VERCEL_ENV ||
+  import.meta.env.VITE_APP_ENV ||
+  "dev";
+  
+console.log("STATUS:", status);
 // ======================
 // FOOTER (ONLY IN BROWSER)
 // ======================
 if (typeof document !== "undefined") {
-    const footer = document.createElement("footer");
-    footer.textContent = `Status: ${status}`;
+   const footer = document.createElement("footer");
 
+footer.textContent = `Status: ${status || "dev"}`;
+document.body.appendChild(footer);
     footer.style.position = "fixed";
     footer.style.bottom = "0";
     footer.style.width = "100%";
@@ -74,8 +73,7 @@ if (typeof document !== "undefined") {
     footer.style.padding = "5px";
     footer.style.fontWeight = "bold";
 
-    document.body.appendChild(footer);
-
+  
     console.log("App status:", status);
 }
 

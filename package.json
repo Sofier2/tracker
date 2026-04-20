@@ -12,7 +12,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint ." 
   },
   "repository": {
     "type": "git",
