@@ -51,9 +51,7 @@ if (typeof document !== "undefined") {
 // ======================
 // ENV (SAFE)
 // ======================
-const status = import.meta.env.PROD
-  ? "PRODUCTION"
-  : "PREVIEW";
+const status = import.meta.env.VITE_APP_ENV;
   
 console.log("STATUS:", status);
 // ======================
