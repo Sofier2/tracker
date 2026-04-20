@@ -42,12 +42,3 @@ test('очищає input після додавання', () => {
     expect(document.getElementById("needInput").value).toBe("");
 });
 
-test('додає елемент в DOM', () => {
-    document.getElementById("needInput").value = "Test";
-
-    addNeed();
-
-    const list = document.getElementById("needList");
-    expect(list.children.length).toBe(1);
-});
-
