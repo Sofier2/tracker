@@ -53,6 +53,7 @@ if (typeof document !== "undefined") {
 // ======================
 const status = import.meta.env.VITE_APP_ENV;
   
+//process.env.NODE_ENV
 console.log("STATUS:", status);
 // ======================
 // FOOTER (ONLY IN BROWSER)
