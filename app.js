@@ -51,10 +51,9 @@ if (typeof document !== "undefined") {
 // ======================
 // ENV (SAFE)
 // ======================
-const status =
-  import.meta.env.VERCEL_ENV ||
-  import.meta.env.VITE_APP_ENV ||
-  "dev";
+const status = import.meta.env.PROD
+  ? "PRODUCTION"
+  : "PREVIEW";
   
 console.log("STATUS:", status);
 // ======================
@@ -63,7 +62,7 @@ console.log("STATUS:", status);
 if (typeof document !== "undefined") {
    const footer = document.createElement("footer");
 
-footer.textContent = `Status: ${status || "dev"}`;
+footer.textContent = `Status: ${status}`;
 document.body.appendChild(footer);
     footer.style.position = "fixed";
     footer.style.bottom = "0";
