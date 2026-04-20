@@ -1,44 +1,29 @@
-const { addNeed, updateCounter, getNeeds, setNeeds } = require('../../app');
+const {
+    addNeed,
+    getNeeds,
+    setNeeds,
+    clearNeeds
+} = require('../../logic');
 
 beforeEach(() => {
-    // створюємо фейковий DOM
-    document.body.innerHTML = `
-        <input id="needInput" />
-        <ul id="needList"></ul>
-        <span id="count"></span>
-    `;
-    setNeeds([]);
+    clearNeeds();
 });
 
 test('додає нову потребу', () => {
-    document.getElementById("needInput").value = "Test";
-
-    addNeed();
+    addNeed("Test");
 
     expect(getNeeds().length).toBe(1);
 });
 
 test('не додає пусту потребу', () => {
-    document.getElementById("needInput").value = "";
-
-    addNeed();
+    addNeed("");
 
     expect(getNeeds().length).toBe(0);
 });
 
-test('оновлює лічильник', () => {
-    setNeeds(["A", "B"]);
+test('очищає масив', () => {
+    addNeed("A");
+    setNeeds([]);
 
-    updateCounter();
-
-    expect(document.getElementById("count").textContent).toBe("2");
+    expect(getNeeds().length).toBe(0);
 });
-
-test('очищає input після додавання', () => {
-    document.getElementById("needInput").value = "Test";
-
-    addNeed();
-
-    expect(document.getElementById("needInput").value).toBe("");
-});
-

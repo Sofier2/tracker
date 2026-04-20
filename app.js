@@ -1,19 +1,19 @@
 // ======================
-// STATE
+// STATE (тільки для UI)
 // ======================
 let needs = [];
 
-
 // ======================
-// LOGIC
+// UI LOGIC
 // ======================
-function updateCounter() {
+function renderCounter() {
     const el = document.getElementById("count");
     if (el) el.textContent = needs.length;
 }
 
-function addNeed(inputValue) {
-    const value = inputValue ?? document.getElementById("needInput")?.value;
+function addNeedUI() {
+    const input = document.getElementById("needInput");
+    const value = input?.value;
 
     if (!value || value.trim() === "") return;
 
@@ -27,44 +27,40 @@ function addNeed(inputValue) {
         list.appendChild(li);
     }
 
-    const input = document.getElementById("needInput");
     if (input) input.value = "";
 
-    updateCounter();
+    renderCounter();
 }
 
-
 // ======================
-// BROWSER EVENTS
+// EVENTS
 // ======================
 if (typeof document !== "undefined") {
     const btn = document.getElementById("addBtn");
+
     if (btn) {
-        btn.addEventListener("click", () => addNeed());
+        btn.addEventListener("click", addNeedUI);
     }
 }
 
-
 // ======================
-// ENV (SAFE FOR JEST)
-// ======================
-// ======================
-// ENV (SAFE)
+// ENV (Vercel / Vite)
 // ======================
 const status =
-  import.meta.env.VERCEL_ENV ||
-  import.meta.env.VITE_APP_ENV ||
-  "dev";
-  
+    import.meta.env?.VERCEL_ENV ||
+    import.meta.env?.VITE_APP_ENV ||
+    "dev";
+
 console.log("STATUS:", status);
+
 // ======================
-// FOOTER (ONLY IN BROWSER)
+// FOOTER
 // ======================
 if (typeof document !== "undefined") {
-   const footer = document.createElement("footer");
+    const footer = document.createElement("footer");
 
-footer.textContent = `Status: ${status || "dev"}`;
-document.body.appendChild(footer);
+    footer.textContent = `Status: ${status}`;
+
     footer.style.position = "fixed";
     footer.style.bottom = "0";
     footer.style.width = "100%";
@@ -73,19 +69,5 @@ document.body.appendChild(footer);
     footer.style.padding = "5px";
     footer.style.fontWeight = "bold";
 
-  
-    console.log("App status:", status);
-}
-
-
-// ======================
-// EXPORTS FOR UNIT TESTS
-// ======================
-if (typeof module !== "undefined") {
-    module.exports = {
-        addNeed,
-        updateCounter,
-        getNeeds: () => needs,
-        setNeeds: (arr) => needs = arr
-    };
+    document.body.appendChild(footer);
 }
