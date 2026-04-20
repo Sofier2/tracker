@@ -47,9 +47,10 @@ if (typeof document !== "undefined") {
 // ENV (Vercel / Vite)
 // ======================
 const status =
-    import.meta.env?.VERCEL_ENV ||
-    import.meta.env?.VITE_APP_ENV ||
-    "dev";
+  import.meta.env.VITE_APP_ENV ||
+  (import.meta.env.MODE === "production"
+    ? "production"
+    : "preview");
 
 console.log("STATUS:", status);
 
